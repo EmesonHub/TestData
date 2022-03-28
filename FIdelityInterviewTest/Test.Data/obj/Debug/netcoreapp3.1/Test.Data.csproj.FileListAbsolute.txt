@@ -1,0 +1,12 @@
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.deps.json
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.runtimeconfig.json
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.runtimeconfig.dev.json
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.dll
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.pdb
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.csprojAssemblyReference.cache
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.AssemblyInfoInputs.cache
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.AssemblyInfo.cs
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.csproj.CoreCompileInputs.cache
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.dll
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.pdb
+C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.genruntimeconfig.cache

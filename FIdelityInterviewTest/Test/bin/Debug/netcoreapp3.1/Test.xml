@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Test</name>
+    </assembly>
+    <members>
+        <member name="M:Test.Controller.TestController.Token">
+            <summary>
+            Get Token
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Test.Controller.TestController.GetAllAccounts">
+            <summary>
+            Get all accounts
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Test.Controller.TestController.GetAccountById(System.Int32)">
+            <summary>
+            Get an account by id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Test.Controller.TestController.CreateAccount(Test.Data.DTO.In.New_Account)">
+            <summary>
+            Add new account
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Test.Controller.TestController.PutAccount(System.Int32,Test.Data.DTO.In.New_Account)">
+            <summary>
+            Update account record
+            </summary>
+            <param name="id"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Test.Controller.TestController.DeleteAccount(System.Int32)">
+            <summary>
+            Delete account
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Test.Controller.TestController.GetAllAccountUserss(System.Int32)">
+            <summary>
+            Get an account by id and its users
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Test.Controller.TestController.GetAllAccountUsersById(System.Int32,System.Int32)">
+            <summary>
+            Get an account by id and by userid
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Test.Controller.TestController.CreateAccountUser(Test.Data.DTO.In.New_User)">
+            <summary>
+            Add new account user
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Test.Controller.TestController.PutAccountUser(System.Int32,Test.Data.DTO.In.New_User)">
+            <summary>
+            Update account user record
+            </summary>
+            <param name="id"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Test.Controller.TestController.DeleteAccountUser(System.Int32)">
+            <summary>
+            Delete account user
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
