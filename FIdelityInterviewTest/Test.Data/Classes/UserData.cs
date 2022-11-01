@@ -8,10 +8,11 @@ using Test.Data.Models;
 using Test.Data.Utilities;
 using Test.Data.DTO.In;
 using Test.Data.DTO.Out;
+using Test.Data.Interfaces;
 
 namespace Test.Data.Classes
 {
-    public class UserData
+    public class UserData : IUserData
     {
         private readonly AppDBContext _Context = new AppDBContext();
 
@@ -122,5 +123,6 @@ namespace Test.Data.Classes
 
 
         }
+
     }
 }

@@ -10,3 +10,16 @@ C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\obj\Debug\
 C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.dll
 C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.pdb
 C:\Users\Project\Documents\Visual Studio 2019\InterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.genruntimeconfig.cache
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.deps.json
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.runtimeconfig.json
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.runtimeconfig.dev.json
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.dll
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\bin\Debug\netcoreapp3.1\Test.Data.pdb
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.AssemblyInfoInputs.cache
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.AssemblyInfo.cs
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.dll
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.pdb
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.genruntimeconfig.cache
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.csproj.CoreCompileInputs.cache
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.csproj.AssemblyReference.cache
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test.Data\obj\Debug\netcoreapp3.1\Test.Data.GeneratedMSBuildEditorConfig.editorconfig

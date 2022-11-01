@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -24,14 +23,14 @@ using Test.Data.DTO;
 using Test.Data.Jobs;
 using Hangfire;
 using Hangfire.SqlServer;
-using Hangfire.Storage.MySql;
-using Hangfire.MySql.Core;
 using Hangfire.Dashboard.BasicAuthorization;
 using System.Diagnostics;
 using Test.Data.Jobs.QuartzScheduler;
 using Quartz.Spi;
 using Quartz;
 using Quartz.Impl;
+using Test.Data.Interfaces;
+using Test.Data.Classes;
 
 namespace Test
 {
@@ -50,12 +49,10 @@ namespace Test
         {
             services.AddControllers();
 
-            //cronjobs
-            services.AddHostedService<NCronTabService>();
 
             services.AddSwaggerGen(x =>
             {
-                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Test Interview", Version = "1.0.0" });
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Test", Version = "1.0.0" });
 
                 var xmlComments = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlCommentPath = Path.Combine(AppContext.BaseDirectory, xmlComments);
@@ -95,6 +92,8 @@ namespace Test
             AppDBContext_Setting.ConnectionString = Configuration.GetConnectionString("Test_Conn");
             services.AddDbContext<AppDBContext>();
 
+            //Initializing the interface mapping
+            services.AddScoped<IUserData, UserData>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
@@ -115,30 +114,36 @@ namespace Test
 
             services.AddCors(options => options.AddPolicy("AllowFromAll", builder => builder.WithMethods("GET", "POST", "DELETE", "PUT").AllowAnyOrigin().AllowAnyHeader()));
 
+            //Hangfire
+            services.AddHangfire(configuration => configuration.SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                .UseSimpleAssemblyNameTypeSerializer()
+                .UseRecommendedSerializerSettings()
+                .UseSqlServerStorage(AppDBContext_Setting.ConnectionString, new SqlServerStorageOptions
+                {
+                    CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+                    SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+                    QueuePollInterval = TimeSpan.Zero,
+                    UseRecommendedIsolationLevel = true,
+                    DisableGlobalLocks = true
+                }));
+            // Add the processing server as IHostedService
+            services.AddHangfireServer();
 
 
-
-            //hangfire
-            //services.AddHangfire(x =>
-
-            //    x.UseStorage(new Hangfire.MySql.Core.MySqlStorage(AppDBContext_Setting.ConnectionString)
-
-            //));
-            //services.AddHangfireServer();
-
-            //RecurringJob.AddOrUpdate(() => Debug.WriteLine("Hangfire Console"), Cron.Minutely);
+            //cronjobs from ncrontab
+            //services.AddHostedService<NCronTabService>();
 
 
 
             // Add Quartz services
-            services.AddHostedService<QuartzHostedService>();
-            services.AddSingleton<IJobFactory, SingletonJobFactory>();
-            services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
-            // Add our job
-            services.AddSingleton<QuartzTask>();
-            services.AddSingleton(new JobSchedule(
-                jobType: typeof(QuartzTask),
-                cronExpression: "0 0/2 0 ? * * *")); // run every 5 min
+            //services.AddHostedService<QuartzHostedService>();
+            //services.AddSingleton<IJobFactory, SingletonJobFactory>();
+            //services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
+            //// Add our job
+            //services.AddSingleton<QuartzTask>();
+            //services.AddSingleton(new JobSchedule(
+            //    jobType: typeof(QuartzTask),
+            //    cronExpression: "0 39 13 ? * *")); // run by this time
 
         }
 
@@ -181,26 +186,25 @@ namespace Test
             //hangfire dashboard
 
             //app.UseHangfireServer();
-            //app.UseHangfireDashboard("/hangfire", new DashboardOptions
-            //{
-            //    Authorization = new[] {
-            //    new BasicAuthAuthorizationFilter(new BasicAuthAuthorizationFilterOptions
-            //    {
-            //        SslRedirect=false,
-            //        RequireSsl=false,
-            //        LoginCaseSensitive=false,
-            //        Users = new[]
-            //        {
-            //            new BasicAuthAuthorizationUser
-            //            {
-            //                Login="admin",
-            //                PasswordClear="1234567890"
-            //            }
-            //        }
-            //    })
-            //    }
-            //}
-            //    );
+            app.UseHangfireDashboard("/hangfire", new DashboardOptions
+            {
+                Authorization = new[] {
+                new BasicAuthAuthorizationFilter(new BasicAuthAuthorizationFilterOptions
+                {
+                    SslRedirect=false,
+                    RequireSsl=false,
+                    LoginCaseSensitive=false,
+                    Users = new[]
+                    {
+                        new BasicAuthAuthorizationUser
+                        {
+                            Login="admin",
+                            PasswordClear="1234567890"
+                        }
+                    }
+                })
+                }
+            });
 
         }
     }

@@ -16,7 +16,7 @@ namespace Test.Data
         {
             if (!opt.IsConfigured)
             {
-                opt.UseMySql(AppDBContext_Setting.ConnectionString, new MySqlServerVersion(new Version()));
+                opt.UseSqlServer(AppDBContext_Setting.ConnectionString);
             }
         }
 

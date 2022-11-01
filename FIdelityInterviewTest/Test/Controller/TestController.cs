@@ -15,6 +15,8 @@ using Test.Data.Utilities;
 using Test.Data.DTO.In;
 using Test.Data.DTO;
 using Test.Data.Classes;
+using Test.Data.Interfaces;
+using Microsoft.AspNetCore.Http.Features;
 
 namespace Test.Controller
 {
@@ -29,28 +31,34 @@ namespace Test.Controller
         private readonly IConfiguration _Configuration;
 
         private readonly ILogger<TestController> _Logger;
+        private readonly IUserData _IUserData;
         private static ILogger StaticLogger = ApplicationLogging.CreateLogger<TestController>();
 
         UserData Data_User = new UserData();
         AccountData Data_Account = new AccountData();
         ApplicationToken AppToken = new ApplicationToken();
 
-        public TestController(AppDBContext context, IConfiguration configuration, ILogger<TestController> logger)
+        public TestController(AppDBContext context, IConfiguration configuration, ILogger<TestController> logger, IUserData iuserdata)
         {
             _Context = context;
             _Configuration = configuration;
             _Logger = logger;
+            _IUserData = iuserdata;
         }
+
+
+
 
         /// <summary>
         /// Get Token
         /// </summary>
         /// <returns></returns>
-        
+
         [AllowAnonymous]
         [HttpGet("/generate/token")]
         public object Token()
         {
+            var ipp = GetClientIPAddress(HttpContext);
             var token = AppToken.BuildToken("1", "Eme Ole");
             return Ok(new
             {
@@ -59,6 +67,21 @@ namespace Test.Controller
         }
 
 
+        public static string GetClientIPAddress(HttpContext context)
+        {
+            string ip = string.Empty;
+            if (!string.IsNullOrEmpty(context.Request.Headers["X-Forwarded-For"]))
+            {
+                ip = context.Request.Headers["X-Forwarded-For"];
+            }
+            else
+            {
+                ip = context.Request.HttpContext.Features.Get<IHttpConnectionFeature>().RemoteIpAddress.ToString();
+            }
+            return ip;
+        }
+
+        #region Accounts Segment
 
 
         /// <summary>
@@ -125,7 +148,7 @@ namespace Test.Controller
         [HttpPut("/accounts/{id}")]
         public async Task<object> PutAccount(int id, [FromBody] New_Account data)
         {
-            return Ok( await Data_Account.UpdateAccount(id, data));
+            return Ok(await Data_Account.UpdateAccount(id, data));
         }
 
 
@@ -160,8 +183,22 @@ namespace Test.Controller
 
         }
 
+        #endregion
 
 
+
+
+
+
+        /// <summary>
+        /// Get an account user by userid
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet("/accounts/users/{userid}")]
+        public async Task<object> GetAccountUserByUseriD(int userid)
+        {
+            return await _IUserData.GetUsersById(userid);
+        }
 
 
 
@@ -197,7 +234,7 @@ namespace Test.Controller
         [HttpPost("/accounts/users")]
         public async Task<object> CreateAccountUser([FromBody] New_User data)
         {
-            
+
             return Ok(await Data_User.CreateAccountUser(data));
         }
 

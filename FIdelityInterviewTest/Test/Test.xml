@@ -44,6 +44,12 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:Test.Controller.TestController.GetAccountUserByUseriD(System.Int32)">
+            <summary>
+            Get an account user by userid
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Test.Controller.TestController.GetAllAccountUserss(System.Int32)">
             <summary>
             Get an account by id and its users
