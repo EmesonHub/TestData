@@ -42,6 +42,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "5.0.10",
           "Microsoft.Extensions.Logging.Log4Net.AspNetCore": "5.0.4",
           "Microsoft.VisualStudio.Web.CodeGeneration.Core": "3.1.5",
+          "Microsoft.Web.Administration": "11.1.0",
           "MySql.Data": "8.0.28",
           "Swashbuckle.AspNetCore": "6.2.1",
           "Test.Data": "1.0.0",
@@ -1552,6 +1553,25 @@
           "lib/netstandard2.0/Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll": {}
         }
       },
+      "Microsoft.Web.Administration/11.1.0": {
+        "dependencies": {
+          "Microsoft.Win32.Registry": "4.7.0",
+          "NETStandard.Library": "1.6.1",
+          "System.Diagnostics.TraceSource": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
+          "System.Security.Principal.Windows": "4.7.0",
+          "System.ServiceProcess.ServiceController": "4.1.0"
+        },
+        "runtime": {
+          "lib/netstandard1.5/Microsoft.Web.Administration.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.17025.1000"
+          }
+        },
+        "compile": {
+          "lib/netstandard1.5/Microsoft.Web.Administration.dll": {}
+        }
+      },
       "Microsoft.Win32.Primitives/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -2785,6 +2805,35 @@
           "System.Security.Cryptography.Primitives": "4.3.0",
           "System.Text.Encoding": "4.3.0",
           "System.Threading": "4.3.0"
+        }
+      },
+      "System.ServiceProcess.ServiceController/4.1.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "3.1.0",
+          "Microsoft.Win32.Primitives": "4.3.0",
+          "System.Collections": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Handles": "4.3.0",
+          "System.Runtime.InteropServices": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/netstandard1.5/System.ServiceProcess.ServiceController.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "4.1.0.0",
+            "fileVersion": "1.0.24212.1"
+          },
+          "runtimes/win/lib/netstandard1.5/System.ServiceProcess.ServiceController.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "4.1.0.0",
+            "fileVersion": "1.0.24212.1"
+          }
+        },
+        "compile": {
+          "ref/netstandard1.4/System.ServiceProcess.ServiceController.dll": {}
         }
       },
       "System.Text.Encoding/4.3.0": {
@@ -5143,6 +5192,13 @@
       "path": "microsoft.visualstudio.web.codegeneration.utils/3.1.5",
       "hashPath": "microsoft.visualstudio.web.codegeneration.utils.3.1.5.nupkg.sha512"
     },
+    "Microsoft.Web.Administration/11.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aVdukBSBsbUJKHvSpfgTnmm6HEOKKJ5l8HXh0F05t7bYMRUzViYD8knqcs55xjnVzyO0epHd+r4TgWt/sSyuQg==",
+      "path": "microsoft.web.administration/11.1.0",
+      "hashPath": "microsoft.web.administration.11.1.0.nupkg.sha512"
+    },
     "Microsoft.Win32.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -5947,6 +6003,13 @@
       "sha512": "sha512-PnXp38O9q/2Oe4iZHMH60kinScv6QiiL2XH54Pj2t0Y6c2zKPEiAZsM/M3wBOHLNTBDFP0zfy13WN2M0qFz5jg==",
       "path": "system.security.securestring/4.3.0",
       "hashPath": "system.security.securestring.4.3.0.nupkg.sha512"
+    },
+    "System.ServiceProcess.ServiceController/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qWVE9WN3+IXpOyRTZJOgDzNNHOp/oC2HaBiAv+T0w8ALWFAdfr0uH4WbFMvgYheZxXxnDXik0FyPelx2Vheaag==",
+      "path": "system.serviceprocess.servicecontroller/4.1.0",
+      "hashPath": "system.serviceprocess.servicecontroller.4.1.0.nupkg.sha512"
     },
     "System.Text.Encoding/4.3.0": {
       "type": "package",

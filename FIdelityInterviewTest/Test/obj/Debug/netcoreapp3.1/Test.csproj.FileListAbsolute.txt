@@ -364,3 +364,7 @@ C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test\bin\Debu
 C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test\obj\Debug\netcoreapp3.1\Test.csproj.AssemblyReference.cache
 C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test\obj\Debug\netcoreapp3.1\Test.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test\bin\Debug\netcoreapp3.1\Microsoft.Web.Administration.dll
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard1.5\System.ServiceProcess.ServiceController.dll
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard1.5\System.ServiceProcess.ServiceController.dll
+C:\Users\eme.ole\Desktop\New folder\TestData\FIdelityInterviewTest\Test\bin\Debug\netcoreapp3.1\applicationHost.config

@@ -1,11 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Web.Administration;
 
 namespace Test
 {
@@ -13,7 +8,28 @@ namespace Test
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            using (ServerManager serverManager = new ServerManager())
+            {
+                Configuration config = serverManager.GetApplicationHostConfiguration();
+
+                ConfigurationSection dynamicIpSecuritySection = config.GetSection("system.webServer/security/dynamicIpSecurity");
+                dynamicIpSecuritySection["denyAction"] = @"Forbidden";
+                dynamicIpSecuritySection["enableProxyMode"] = true;
+                dynamicIpSecuritySection["enableLoggingOnlyMode"] = true;
+
+                ConfigurationElement denyByConcurrentRequestsElement = dynamicIpSecuritySection.GetChildElement("denyByConcurrentRequests");
+                denyByConcurrentRequestsElement["enabled"] = true;
+                denyByConcurrentRequestsElement["maxConcurrentRequests"] = 10;
+
+                ConfigurationElement denyByRequestRateElement = dynamicIpSecuritySection.GetChildElement("denyByRequestRate");
+                denyByRequestRateElement["enabled"] = true;
+                denyByRequestRateElement["maxRequests"] = 10;
+                denyByRequestRateElement["requestIntervalInMilliseconds"] = 10;
+
+                serverManager.CommitChanges();
+
+                CreateHostBuilder(args).Build().Run();
+            }
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
